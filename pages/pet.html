@@ -80,6 +80,15 @@ document.getElementById("species").innerText = pet.species;
 document.getElementById("breed").innerText = pet.breed;
 document.getElementById("age").innerText = pet.age;
 document.getElementById("weight").innerText = pet.weight;
+  function deletePet(){
+
+pets.splice(index,1);
+
+localStorage.setItem("pets",JSON.stringify(pets));
+
+window.location.href="dashboard.html";
+
+  }
 
 </script>
 
