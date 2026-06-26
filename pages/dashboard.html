@@ -75,7 +75,7 @@ pets.forEach((pet,index)=>{
 
 html += `
 <div class="pet-card">
-<a href="pet.html">🐶 ${pet.name}</a>
+<a href="#" onclick="openPet(${index})">🐶 ${pet.name}</a>
 </div>
 `;
 
@@ -85,7 +85,15 @@ if(html==""){
 html="<p>No pets added yet.</p>";
 }
 
-document.getElementById("petList").innerHTML=html;
+document.getElementById("petList").innerHTML = html;
+
+function openPet(index){
+
+localStorage.setItem("selectedPet", index);
+
+window.location.href = "pet.html";
+
+}
 
 </script>
 
