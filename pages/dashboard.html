@@ -71,31 +71,25 @@ let pets = JSON.parse(localStorage.getItem("pets")) || [];
 
 let html = "";
 
-pets.forEach((pet,index)=>{
-
-html += `
-<div class="pet-card">
-<a href="#" onclick="openPet(${index})">🐶 ${pet.name}</a>
-</div>
-`;
-
+pets.forEach((pet, index) => {
+    html += `
+    <div class="pet-card">
+        <a href="#" onclick="openPet(${index})">🐾 ${pet.name}</a>
+    </div>
+    `;
 });
 
-if(html==""){
-html="<p>No pets added yet.</p>";
+if (pets.length === 0) {
+    html = "<p>No pets added yet.</p>";
 }
 
 document.getElementById("petList").innerHTML = html;
 
-function openPet(index){
-
-localStorage.setItem("selectedPet", index);
-
-window.location.href = "pet.html";
-
+function openPet(index) {
+    localStorage.setItem("selectedPet", index);
+    window.location.href = "pet.html";
 }
 
-</script>
-
+    </script>
 </body>
 </html>
