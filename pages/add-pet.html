@@ -17,30 +17,33 @@
 
 <input id="petName" type="text" placeholder="Pet Name">
 
-<input type="text" placeholder="Species (Dog/Cat/etc.)">
+<input id="species" type="text" placeholder="Species (Dog/Cat/etc.)">
 
-<input type="text" placeholder="Breed">
+<input id="breed" type="text" placeholder="Breed">
 
-<input type="number" placeholder="Age">
+<input id="age" type="number" placeholder="Age">
 
-<input type="number" placeholder="Weight (kg)">
+<input id="weight" type="number" placeholder="Weight (kg)">
 
 <button onclick="savePet()">Save Pet</button>
 
 </div>
 
 <script>
-function savePet() {
-    const petName = document.getElementById("petName").value;
+function savePet(){
 
-    if (petName === "") {
-        alert("Please enter your pet's name.");
-        return;
-    }
+const pet={
+name:document.getElementById("petName").value,
+species:document.getElementById("species").value,
+breed:document.getElementById("breed").value,
+age:document.getElementById("age").value,
+weight:document.getElementById("weight").value
+};
 
-    localStorage.setItem("petName", petName);
+localStorage.setItem("pet",JSON.stringify(pet));
 
-    window.location.href = "dashboard.html";
+window.location.href="dashboard.html";
+
 }
 </script>
 
