@@ -30,27 +30,41 @@
 
 <script>
 
-function savePet(){
+function savePet() {
 
-const pet = {
-name: document.getElementById("petName").value,
-species: document.getElementById("species").value,
-breed: document.getElementById("breed").value,
-age: document.getElementById("age").value,
-weight: document.getElementById("weight").value
-};
+    const pet = {
+        name: document.getElementById("petName").value,
+        species: document.getElementById("species").value,
+        breed: document.getElementById("breed").value,
+        age: document.getElementById("age").value,
+        weight: document.getElementById("weight").value
+    };
 
-let pets = JSON.parse(localStorage.getItem("pets")) || [];
+    if (
+        pet.name === "" ||
+        pet.species === "" ||
+        pet.breed === "" ||
+        pet.age === "" ||
+        pet.weight === ""
+    ) {
+        alert("Please fill all fields.");
+        return;
+    }
 
-pets.push(pet);
+    let pets = JSON.parse(localStorage.getItem("pets"));
 
-localStorage.setItem("pets", JSON.stringify(pets));
+    if (!Array.isArray(pets)) {
+        pets = [];
+    }
 
-window.location.href = "dashboard.html";
+    pets.push(pet);
+
+    localStorage.setItem("pets", JSON.stringify(pets));
+
+    window.location.href = "dashboard.html";
 
 }
 
-</script>
-
+      </script>
 </body>
 </html>
