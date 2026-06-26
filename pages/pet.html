@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Pet Profile</title>
+
+<link rel="stylesheet" href="../style.css">
 
 <style>
 body{
 font-family:Arial,sans-serif;
-background:#f4f8ff;
+background:#f5f8ff;
 padding:30px;
 }
 
 .card{
-max-width:400px;
+max-width:420px;
 margin:auto;
 background:white;
 padding:25px;
 border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
+box-shadow:0 10px 30px rgba(0,0,0,.08);
 text-align:center;
 }
 
-h1{
-color:#4f8df7;
-}
-
-p{
+.info{
+text-align:left;
+margin-top:20px;
 font-size:20px;
-margin:15px 0;
+line-height:2;
 }
 
 button{
 width:100%;
 padding:15px;
-margin-top:20px;
+margin-top:25px;
 border:none;
 border-radius:12px;
 background:#4f8df7;
@@ -52,15 +54,42 @@ cursor:pointer;
 
 <h1>🐶 Pet Profile</h1>
 
-<p id="petName"></p>
+<div class="info">
+
+<p><b>Name:</b> <span id="name"></span></p>
+
+<p><b>Species:</b> <span id="species"></span></p>
+
+<p><b>Breed:</b> <span id="breed"></span></p>
+
+<p><b>Age:</b> <span id="age"></span></p>
+
+<p><b>Weight:</b> <span id="weight"></span> kg</p>
+
+</div>
 
 <button onclick="history.back()">Back</button>
 
 </div>
 
 <script>
-document.getElementById("petName").innerText =
-localStorage.getItem("petName");
+
+const pet = JSON.parse(localStorage.getItem("pet"));
+
+if(pet){
+
+document.getElementById("name").innerText = pet.name;
+
+document.getElementById("species").innerText = pet.species;
+
+document.getElementById("breed").innerText = pet.breed;
+
+document.getElementById("age").innerText = pet.age;
+
+document.getElementById("weight").innerText = pet.weight;
+
+}
+
 </script>
 
 </body>
