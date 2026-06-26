@@ -27,6 +27,20 @@ margin:20px 0;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
 text-align:center;
 }
+
+.pet-card{
+background:#eef5ff;
+padding:15px;
+border-radius:12px;
+margin:12px 0;
+}
+
+.pet-card a{
+text-decoration:none;
+font-size:20px;
+font-weight:bold;
+color:#4f8df7;
+}
 </style>
 
 </head>
@@ -38,13 +52,10 @@ text-align:center;
 <h1>🐶 PawDose</h1>
 
 <div class="card">
-<h2>🐶 My Pets</h2>
 
-<a id="petDisplay" href="pet.html">
-No pets added yet.
-</a>
+<h2>My Pets</h2>
 
-<br><br>
+<div id="petList"></div>
 
 <a href="add-pet.html">
 <button>Add Pet</button>
@@ -52,26 +63,30 @@ No pets added yet.
 
 </div>
 
-<div class="card">
-<h2>💊 Medication</h2>
-<p>No medications added yet.</p>
-<button>Add Medication</button>
-</div>
-
-<div class="card">
-<h2>🔔 Reminders</h2>
-<p>No reminders scheduled.</p>
-<button>Create Reminder</button>
-</div>
-
 </div>
 
 <script>
-const pet = JSON.parse(localStorage.getItem("pet"));
 
-if (pet) {
-    document.getElementById("petDisplay").innerHTML = "🐶 " + pet.name;
+let pets = JSON.parse(localStorage.getItem("pets")) || [];
+
+let html = "";
+
+pets.forEach((pet,index)=>{
+
+html += `
+<div class="pet-card">
+<a href="pet.html">🐶 ${pet.name}</a>
+</div>
+`;
+
+});
+
+if(html==""){
+html="<p>No pets added yet.</p>";
 }
+
+document.getElementById("petList").innerHTML=html;
+
 </script>
 
 </body>
