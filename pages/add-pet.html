@@ -33,12 +33,14 @@
 function savePet(){
 
 const pet={
-name:document.getElementById("petName").value,
-species:document.getElementById("species").value,
-breed:document.getElementById("breed").value,
-age:document.getElementById("age").value,
-weight:document.getElementById("weight").value
+...
 };
+
+localStorage.setItem("pet",JSON.stringify(pet));
+
+window.location.href="dashboard.html";
+
+}
 
 localStorage.setItem("pet",JSON.stringify(pet));
 
