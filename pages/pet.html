@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Profile</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f4f8ff;
+padding:30px;
+}
+
+.card{
+max-width:400px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+text-align:center;
+}
+
+h1{
+color:#4f8df7;
+}
+
+p{
+font-size:20px;
+margin:15px 0;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:20px;
+border:none;
+border-radius:12px;
+background:#4f8df7;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🐶 Pet Profile</h1>
+
+<p id="petName"></p>
+
+<button onclick="history.back()">Back</button>
+
+</div>
+
+<script>
+document.getElementById("petName").innerText =
+localStorage.getItem("petName");
+</script>
+
+</body>
+</html>
