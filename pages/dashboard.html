@@ -67,10 +67,10 @@ No pets added yet.
 </div>
 
 <script>
-const petName = localStorage.getItem("petName");
+const pet = JSON.parse(localStorage.getItem("pet"));
 
-if(petName){
-document.getElementById("petDisplay").innerHTML="🐶 "+petName;
+if (pet) {
+    document.getElementById("petDisplay").innerHTML = "🐶 " + pet.name;
 }
 </script>
 
