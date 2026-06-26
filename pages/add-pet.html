@@ -6,7 +6,6 @@
 <title>Add Pet - PawDose</title>
 
 <link rel="stylesheet" href="../style.css">
-
 </head>
 
 <body>
@@ -30,23 +29,27 @@
 </div>
 
 <script>
+
 function savePet(){
 
-const pet={
-...
+const pet = {
+name: document.getElementById("petName").value,
+species: document.getElementById("species").value,
+breed: document.getElementById("breed").value,
+age: document.getElementById("age").value,
+weight: document.getElementById("weight").value
 };
 
-localStorage.setItem("pet",JSON.stringify(pet));
+let pets = JSON.parse(localStorage.getItem("pets")) || [];
 
-window.location.href="dashboard.html";
+pets.push(pet);
 
-}
+localStorage.setItem("pets", JSON.stringify(pets));
 
-localStorage.setItem("pet",JSON.stringify(pet));
-
-window.location.href="dashboard.html";
+window.location.href = "dashboard.html";
 
 }
+
 </script>
 
 </body>
