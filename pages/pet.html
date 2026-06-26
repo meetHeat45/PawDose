@@ -71,24 +71,29 @@ cursor:pointer;
 
 let pets = JSON.parse(localStorage.getItem("pets")) || [];
 
-let index = localStorage.getItem("selectedPet");
+let index = Number(localStorage.getItem("selectedPet"));
 
-let pet = pets[index];
+if (index >= 0 && index < pets.length) {
 
-document.getElementById("name").innerText = pet.name;
-document.getElementById("species").innerText = pet.species;
-document.getElementById("breed").innerText = pet.breed;
-document.getElementById("age").innerText = pet.age;
-document.getElementById("weight").innerText = pet.weight;
-  function deletePet(){
+    let pet = pets[index];
 
-pets.splice(index,1);
+    document.getElementById("name").innerText = pet.name;
+    document.getElementById("species").innerText = pet.species;
+    document.getElementById("breed").innerText = pet.breed;
+    document.getElementById("age").innerText = pet.age;
+    document.getElementById("weight").innerText = pet.weight;
 
-localStorage.setItem("pets",JSON.stringify(pets));
+}
 
-window.location.href="dashboard.html";
+function deletePet() {
 
-  }
+    pets.splice(index, 1);
+
+    localStorage.setItem("pets", JSON.stringify(pets));
+
+    window.location.href = "dashboard.html";
+
+}
 
 </script>
 
