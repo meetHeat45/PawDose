@@ -179,3 +179,38 @@ color:#4F8EF7;
 color:#555;
 line-height:1.6;
 }
+.stats{
+padding:80px 20px;
+background:linear-gradient(135deg,#4F8EF7,#6AA8FF);
+color:white;
+text-align:center;
+}
+
+.stats h2{
+margin-bottom:40px;
+font-size:34px;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:25px;
+max-width:900px;
+margin:auto;
+}
+
+.stat{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(10px);
+border-radius:20px;
+padding:30px;
+}
+
+.stat h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.stat p{
+font-size:18px;
+}
